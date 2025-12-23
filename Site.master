@@ -1,0 +1,88 @@
+<%@ Master Language="VB" %>
+<%@ Register TagPrefix="uc" TagName="Navbar" Src="/dashboard_pmb/ascx/navbar.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Footer" Src="/dashboard_pmb/ascx/footer.ascx" %>
+<%@ Register TagPrefix="uc" TagName="Lintar" Src="/con_ascx2022/conlintar2022.ascx" %>
+
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>
+        <asp:ContentPlaceHolder ID="TitleContent" runat="server">
+        </asp:ContentPlaceHolder>
+    </title>
+    <!-- Tell the browser to be responsive to screen width -->
+    <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    
+    <!-- Bootstrap 3.3.6 -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/font-awesome.css">
+    <!-- Ionicons -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/ionicons.css">
+    <!-- Theme style -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/AdminLTE.css">
+    <link rel="stylesheet" href="/admin_lte/assets/css/AdminLTE.min.css">
+    <!-- AdminLTE Skins. Choose a skin from the css/skins folder instead of downloading all of them to reduce the load. -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/skins/_all-skins.css">
+    
+    <!-- fancybox -->
+    <link rel="stylesheet" href="/admin_lte/assets/css/jquery.fancybox.css" type="text/css" media="screen" />
+    
+    <!-- sweetalert2 -->
+    <link rel="stylesheet" href="/admin_lte310/plugins/sweetalert2/sweetalert2.min.css">
+
+    <!-- jQuery 2.2.3 -->
+    <script src="/admin_lte/assets/js/plugins/jQuery/jquery-2.2.3.min.js"></script>
+    <!-- Bootstrap 3.3.6 -->
+    <script src="/admin_lte/assets/js/bootstrap.min.js"></script>
+    <!-- SlimScroll -->
+    <script src="/admin_lte/assets/js/plugins/slimScroll/jquery.slimscroll.min.js"></script>
+    <!-- FastClick -->
+    <script src="/admin_lte/assets/js/plugins/fastclick/fastclick.js"></script>
+    <!-- AdminLTE App -->
+    <script src="/admin_lte/assets/js/AdminLTE/app.min.js"></script>
+    
+    <!-- DataTables -->
+    <script src="/admin_lte/assets/js/jquery.dataTables.min.js"></script>
+    <script src="/admin_lte/assets/js/jquery.dataTables.bootstrap.min.js"></script>
+    <script src="/admin_lte/assets/js/dataTables.buttons.min.js"></script>
+    
+    <!-- fancybox -->
+    <script type="text/javascript" language="javascript" src="/admin_lte/assets/js/jquery.fancybox.js"></script>
+    
+    <!-- sweetalert2 -->
+    <script type="text/javascript" src="/admin_lte310/plugins/sweetalert2/sweetalert2.min.js"></script>
+</head>
+
+<body class="hold-transition skin-blue layout-top-nav">
+    <form id="form1" runat="server">
+        <div class="wrapper">
+            <uc:Lintar ID="Lintar1" runat="server" />
+            
+            <header class="main-header">
+                <uc:Navbar ID="Navbar1" runat="server" />
+            </header>
+
+            <div class="content-wrapper">
+                <div class="container">
+                    <asp:ContentPlaceHolder ID="MainContent" runat="server">
+                    </asp:ContentPlaceHolder>
+                </div>
+            </div>
+
+            <footer class="main-footer">
+                <uc:Footer ID="Footer1" runat="server" />
+            </footer>
+        </div>
+    </form>
+</body>
+</html>
+
+<script runat="server">
+    Sub Page_Load(sender As Object, e As EventArgs)
+        Lintar1.cekauthlintar()
+    End Sub
+</script>
