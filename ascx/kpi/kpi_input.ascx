@@ -30,9 +30,9 @@
     End Sub
 
   ' === KONFIG (pindahkan ke Web.config untuk produksi) ===
-  Private Const CONN As String =
-    "Provider=sqloledb;Data Source=10.200.120.83,1433;Network Library=DBMSSOCN;" &
-    "Initial Catalog=Pmbregol;User ID=sa;Password=dbTesting2023;connect timeout=200;pooling=false;max pool size=200"
+  Private ReadOnly ConnPmb  As String =
+  "Provider=SQLOLEDB;Data Source=<DB_HOST>,<PORT>;Initial Catalog=<PMB_DB_NAME>;User ID=<DB_USER>;Password=<DB_PASS>;"
+
 
     Private Shared ReadOnly FakJurMap As Dictionary(Of String, String()) = CreateFakJurMap()
 
@@ -953,5 +953,6 @@ small.text-muted{ display:inline-block; margin-top:4px; }
     }, 2800);
   }
 </script>
+
 
 
